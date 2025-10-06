@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cx3xcp0q8ls3b"]
+
+[ext_resource type="AudioStream" uid="uid://clq2rubmur5h5" path="res://scenes/main_menu/noncopyright-music-pianos-295174.mp3" id="1_05ggv"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_05ggv")
+autoplay = true
+bus = &"Music"

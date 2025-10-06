@@ -1,0 +1,151 @@
+[gd_scene load_steps=9 format=3 uid="uid://7e3hft83dyk1"]
+
+[ext_resource type="Texture2D" uid="uid://c4i31gp7inoc5" path="res://ui picter.jpg" id="1_0f027"]
+[ext_resource type="FontFile" uid="uid://cve26gs1nb35c" path="res://Pixelmax-Regular.otf" id="2_2c62f"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2c62f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o3jxj"]
+bg_color = Color(0.8574442, 0.99867326, 0.8446875, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gyfs4"]
+bg_color = Color(0.28237253, 1, 0.24724528, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2c62f"]
+bg_color = Color(0.56078434, 1, 0.5254902, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 5
+shadow_offset = Vector2(0, 3.41)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2c62f"]
+
+[sub_resource type="FontVariation" id="FontVariation_gyfs4"]
+base_font = ExtResource("2_2c62f")
+
+[node name="MainScene" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_bottom = 1.0
+offset_left = -522.0
+offset_top = -337.0
+offset_right = 494.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2c62f")
+
+[node name="UiPicter" type="Sprite2D" parent="Panel"]
+position = Vector2(573, 304)
+texture = ExtResource("1_0f027")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -195.0
+offset_top = -30.0
+offset_right = 267.0
+offset_bottom = 237.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 9
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_2c62f")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_o3jxj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gyfs4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2c62f")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2c62f")
+text = "Start Game"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_2c62f")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_o3jxj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gyfs4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2c62f")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2c62f")
+text = "Options"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_2c62f")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_o3jxj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gyfs4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2c62f")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_2c62f")
+text = "Exit
+"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -217.0
+offset_top = -236.0
+offset_right = 323.0
+offset_bottom = -106.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.8987526, 0.8928684, 0.89875376, 1)
+theme_override_colors/font_shadow_color = Color(0.08235294, 0.08235294, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/font = SubResource("FontVariation_gyfs4")
+theme_override_font_sizes/font_size = 80
+text = "Code Trinity"
+horizontal_alignment = 1
+vertical_alignment = 1

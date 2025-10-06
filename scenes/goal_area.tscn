@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgiflimf41ex2"]
+
+[ext_resource type="Script" uid="uid://ms08qus18mjj" path="res://scenes/GoalArea.gd" id="1_bfgo0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6qyab"]
+size = Vector2(106, 86)
+
+[node name="GoalArea" type="Area2D"]
+collision_layer = 0
+collision_mask = 7
+script = ExtResource("1_bfgo0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(43, -33)
+shape = SubResource("RectangleShape2D_6qyab")
