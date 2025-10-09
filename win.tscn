@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://cblctdfq3qme0"]
+
+[ext_resource type="Texture2D" uid="uid://bm5xb1a1cav4f" path="res://scenes/main_menu/ui picter.jpg" id="1_hgi8f"]
+[ext_resource type="FontFile" uid="uid://ca3do44vc301w" path="res://scenes/main_menu/Pixelmax-Regular.otf" id="2_tmki8"]
+[ext_resource type="Script" uid="uid://ddjbhrrabqvdw" path="res://button.gd" id="2_yblwc"]
+[ext_resource type="PackedScene" uid="uid://cx3xcp0q8ls3b" path="res://scenes/music.tscn" id="4_yblwc"]
+
+[node name="win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1914.0
+offset_bottom = 1069.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+position = Vector2(958.75, 541.75)
+scale = Vector2(1.6293617, 1.6943128)
+texture = ExtResource("1_hgi8f")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 625.0
+offset_top = 658.0
+offset_right = 1356.0
+offset_bottom = 744.0
+theme_override_font_sizes/font_size = 40
+text = "Main Menu"
+script = ExtResource("2_yblwc")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 424.0
+offset_right = 1859.0
+offset_bottom = 509.0
+theme_override_fonts/font = ExtResource("2_tmki8")
+theme_override_font_sizes/font_size = 50
+text = "You saved the princess by sacrificing your coin and stamina."
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 573.0
+offset_top = 267.0
+offset_right = 1491.0
+offset_bottom = 423.0
+theme_override_fonts/font = ExtResource("2_tmki8")
+theme_override_font_sizes/font_size = 100
+text = "Congratulations"
+
+[node name="Music" parent="." instance=ExtResource("4_yblwc")]
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

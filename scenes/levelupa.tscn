@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt7ttqe353f8n"]
+
+[ext_resource type="Script" uid="uid://dsifl07kh41ay" path="res://scripts/levelupa.gd" id="1_sdowe"]
+
+[node name="levelup" type="Area2D"]
+script = ExtResource("1_sdowe")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

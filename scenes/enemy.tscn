@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://mepavaskgoly"]
+
+[ext_resource type="Script" uid="uid://dmlcua7tb42hb" path="res://scripts/enemy.gd" id="1_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://ckfkacpjtiefi" path="res://assets/Monsters_Creatures_Fantasy/Goblin/Idle.png" id="1_md0e3"]
+[ext_resource type="PackedScene" uid="uid://endoahdfr0sb" path="res://scenes/killzone.tscn" id="2_4ra3w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uy6h"]
+atlas = ExtResource("1_md0e3")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4w8v"]
+atlas = ExtResource("1_md0e3")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwavj"]
+atlas = ExtResource("1_md0e3")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nenq2"]
+atlas = ExtResource("1_md0e3")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_md484"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uy6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4w8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwavj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nenq2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4w8v"]
+size = Vector2(24, 31.5)
+
+[node name="enemy" type="Node2D"]
+script = ExtResource("1_4ra3w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, 16)
+sprite_frames = SubResource("SpriteFrames_md484")
+frame_progress = 0.58186734
+flip_h = true
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(33, 26)
+target_position = Vector2(20, 2)
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(32, 26)
+target_position = Vector2(-21, 1)
+
+[node name="Killzone" parent="." instance=ExtResource("2_4ra3w")]
+position = Vector2(26, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(7, 29.25)
+shape = SubResource("RectangleShape2D_c4w8v")
+
+[connection signal="body_entered" from="Killzone" to="Killzone" method="_on_body_entered"]

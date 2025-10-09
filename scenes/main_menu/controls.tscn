@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cpoh63tj7egs0"]
+[gd_scene load_steps=4 format=3 uid="uid://cpoh63tj7egs0"]
 
 [ext_resource type="Texture2D" uid="uid://bm5xb1a1cav4f" path="res://scenes/main_menu/ui picter.jpg" id="1_ml3j1"]
 [ext_resource type="FontFile" uid="uid://ca3do44vc301w" path="res://scenes/main_menu/Pixelmax-Regular.otf" id="2_c731i"]
+[ext_resource type="PackedScene" uid="uid://cx3xcp0q8ls3b" path="res://scenes/music.tscn" id="3_ii0nr"]
 
 [node name="Controls" type="Control"]
 layout_mode = 3
@@ -113,3 +114,5 @@ theme_override_fonts/font = ExtResource("2_c731i")
 theme_override_font_sizes/font_size = 110
 text = "Shift"
 horizontal_alignment = 1
+
+[node name="Music" parent="." instance=ExtResource("3_ii0nr")]

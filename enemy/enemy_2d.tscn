@@ -1,29 +1,9 @@
-[gd_scene load_steps=26 format=3 uid="uid://bcix3mq5srmum"]
+[gd_scene load_steps=20 format=3 uid="uid://bcix3mq5srmum"]
 
 [ext_resource type="Script" uid="uid://cvxs5tyiodusx" path="res://enemy/enemy_2d.gd" id="2"]
-[ext_resource type="Script" uid="uid://ccbcjmb05rjit" path="res://nodes/hurt_area_2d.gd" id="3"]
-[ext_resource type="Theme" uid="uid://dqsspujlsjg62" path="res://interface/theme.tres" id="4_23e3h"]
+[ext_resource type="PackedScene" uid="uid://endoahdfr0sb" path="res://scenes/killzone.tscn" id="4_23e3h"]
 [ext_resource type="Texture2D" uid="uid://ckfkacpjtiefi" path="res://assets/Monsters_Creatures_Fantasy/Goblin/Idle.png" id="4_e80wc"]
 [ext_resource type="Texture2D" uid="uid://f8a780b3rf7j" path="res://assets/Monsters_Creatures_Fantasy/Goblin/Attack.png" id="4_r04yw"]
-[ext_resource type="Script" uid="uid://ctqytef6t6cmw" path="res://nodes/hit_area_2d.gd" id="6_r04yw"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_23e3h"]
-radius = 14.0
-height = 40.0
-
-[sub_resource type="Animation" id="3"]
-length = 0.001
-
-[sub_resource type="Animation" id="4"]
-resource_name = "hit"
-length = 0.15
-step = 0.05
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5p6bu"]
-_data = {
-&"RESET": SubResource("3"),
-&"hit": SubResource("4")
-}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1kpyn"]
 atlas = ExtResource("4_r04yw")
@@ -124,47 +104,11 @@ animations = [{
 
 [sub_resource type="GDScript" id="GDScript_e80wc"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ayv7"]
-radius = 13.142059
-height = 38.432426
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e80wc"]
+size = Vector2(25, 34)
 
 [node name="Enemy2D" type="Node2D"]
 script = ExtResource("2")
-
-[node name="HurtArea2D" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 7
-monitorable = false
-script = ExtResource("3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea2D"]
-position = Vector2(2, -43)
-shape = SubResource("CapsuleShape2D_23e3h")
-debug_color = Color(0.56078434, 0.87058824, 0.3647059, 0.41960785)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_5p6bu")
-}
-
-[node name="HPProgressBar" type="ProgressBar" parent="."]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(100, 10)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -46.0
-offset_top = -86.0
-offset_right = 54.0
-offset_bottom = -76.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("4_23e3h")
-value = 100.0
-show_percentage = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -51)
@@ -176,20 +120,15 @@ flip_h = true
 script = SubResource("GDScript_e80wc")
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
-position = Vector2(0, -34)
-target_position = Vector2(41, 1)
+position = Vector2(2, -41)
+target_position = Vector2(23, 1)
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-position = Vector2(0, -32)
-target_position = Vector2(-45, -1)
+position = Vector2(2, -41)
+target_position = Vector2(-21, 0)
 
-[node name="HitArea2D" type="Area2D" parent="."]
-script = ExtResource("6_r04yw")
-metadata/_custom_type_script = "uid://ctqytef6t6cmw"
+[node name="Killzone" parent="." instance=ExtResource("4_23e3h")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D"]
-position = Vector2(-23, -37.999996)
-rotation = -1.682754
-shape = SubResource("CapsuleShape2D_5ayv7")
-
-[connection signal="body_entered" from="HurtArea2D" to="." method="_on_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
+position = Vector2(3.5, -42)
+shape = SubResource("RectangleShape2D_e80wc")

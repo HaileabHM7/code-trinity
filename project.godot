@@ -13,7 +13,6 @@ config_version=5
 config/name="HitBox and HurtBox (GDQuest)"
 run/main_scene="uid://bpvuv1qaueo5i"
 config/features=PackedStringArray("4.5")
-config/icon="res://icon.png"
 
 [autoload]
 
@@ -24,6 +23,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 directories/dch_directory={}
 directories/dtl_directory={
 "end": "res://end.dtl",
+"free": "res://free.dtl",
 "intro": "res://intro.dtl"
 }
 layout/style_directory={}

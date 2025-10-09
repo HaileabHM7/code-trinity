@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpvuv1qaueo5i"]
+[gd_scene load_steps=12 format=3 uid="uid://bpvuv1qaueo5i"]
 
 [ext_resource type="Texture2D" uid="uid://bm5xb1a1cav4f" path="res://scenes/main_menu/ui picter.jpg" id="1_phnmr"]
 [ext_resource type="FontFile" uid="uid://ca3do44vc301w" path="res://scenes/main_menu/Pixelmax-Regular.otf" id="2_ygd3j"]
 [ext_resource type="Script" uid="uid://cqpm63sse7l07" path="res://scenes/main_menu/startbtn.gd" id="3_0dcrl"]
 [ext_resource type="Script" uid="uid://c60tgekjjvmqj" path="res://scenes/main_menu/contros.gd" id="4_rhgae"]
 [ext_resource type="Script" uid="uid://fvggxknpdbk7" path="res://scenes/main_menu/exit.gd" id="4_x240k"]
+[ext_resource type="PackedScene" uid="uid://cx3xcp0q8ls3b" path="res://scenes/music.tscn" id="6_qxh8d"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2c62f"]
 
@@ -90,7 +91,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 10
 theme_override_fonts/font = ExtResource("2_ygd3j")
 theme_override_font_sizes/font_size = 80
-text = "Code Trinity"
+text = "Knight’s Redemption"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -148,6 +149,8 @@ script = ExtResource("4_x240k")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(351, 192)
+
+[node name="Music" parent="." instance=ExtResource("6_qxh8d")]
 
 [connection signal="pressed" from="VBoxContainer/Button" to="VBoxContainer/Button" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="VBoxContainer/Button2" method="_on_pressed"]

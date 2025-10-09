@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=3 uid="uid://dmjgs1ldclgxc"]
+
+[ext_resource type="Texture2D" uid="uid://dl6x3dxqd2cw2" path="res://scenes/main_menu/dialogue.png" id="1_5acqs"]
+[ext_resource type="FontFile" uid="uid://ca3do44vc301w" path="res://scenes/main_menu/Pixelmax-Regular.otf" id="2_uk41u"]
+[ext_resource type="Script" uid="uid://bwp2vtwqw60py" path="res://scripts/restart_2.gd" id="3_312hr"]
+[ext_resource type="Script" uid="uid://dfqn0nwxcp16v" path="res://scripts/continue.gd" id="4_xoaqb"]
+[ext_resource type="PackedScene" uid="uid://cx3xcp0q8ls3b" path="res://scenes/music.tscn" id="5_0scpi"]
+
+[node name="levelup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+position = Vector2(958, 540)
+scale = Vector2(1.3938507, 1.390625)
+texture = ExtResource("1_5acqs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -452.5
+offset_top = -68.5
+offset_right = 452.5
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uk41u")
+theme_override_font_sizes/font_size = 30
+text = "You are going to sacrifice yourself and fight the boss....
+ Are you sure to continue?"
+
+[node name="restart2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Restart"
+script = ExtResource("3_312hr")
+
+[node name="continue" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Continue"
+script = ExtResource("4_xoaqb")
+
+[node name="Music" parent="." instance=ExtResource("5_0scpi")]
+
+[connection signal="pressed" from="VBoxContainer/restart2" to="VBoxContainer/restart2" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/continue" to="VBoxContainer/continue" method="_on_pressed"]

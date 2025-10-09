@@ -16,6 +16,7 @@ func _physics_process(delta: float) -> void:
 	translate(_velocity * delta)
 
 
+
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack"):
 		animation_player.play("slash")

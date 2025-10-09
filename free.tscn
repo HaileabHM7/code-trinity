@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cr3pdm4co4opf"]
+
+[ext_resource type="Script" uid="uid://djrl8hjpsfqqj" path="res://scripts/free.gd" id="1_almcv"]
+[ext_resource type="Texture2D" uid="uid://yt8cup8vls88" path="res://assets/Screenshot (16).png" id="2_7r275"]
+[ext_resource type="PackedScene" uid="uid://cx3xcp0q8ls3b" path="res://scenes/music.tscn" id="3_7r275"]
+[ext_resource type="FontFile" uid="uid://ca3do44vc301w" path="res://scenes/main_menu/Pixelmax-Regular.otf" id="4_jbpca"]
+[ext_resource type="Script" uid="uid://b2yvbdltijs5u" path="res://continue2.gd" id="5_qjfxf"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_almcv")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1924.0
+offset_bottom = 1078.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Panel"]
+position = Vector2(969.50006, 580)
+scale = Vector2(1.4106882, 1.5026041)
+texture = ExtResource("2_7r275")
+
+[node name="Music" parent="." instance=ExtResource("3_7r275")]
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1324.0
+offset_top = 800.0
+offset_right = 1709.0
+offset_bottom = 904.0
+theme_override_fonts/font = ExtResource("4_jbpca")
+theme_override_font_sizes/font_size = 50
+text = "Continue"
+script = ExtResource("5_qjfxf")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

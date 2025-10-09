@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://bigdrw7ciqlx5"]
+[gd_scene load_steps=56 format=3 uid="uid://bigdrw7ciqlx5"]
 
 [ext_resource type="Script" uid="uid://daew7i8r4826i" path="res://sword/sword_2d.gd" id="2"]
 [ext_resource type="Script" uid="uid://rel0dqx36es2" path="res://scenes/player.gd" id="2_lx4ti"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://c0ceip3dbw3t6" path="res://assets/Colour1/NoOutline/120x80_PNGSheets/_Death.png" id="5_70pjh"]
 [ext_resource type="Script" uid="uid://ctqytef6t6cmw" path="res://nodes/hit_area_2d.gd" id="6"]
 [ext_resource type="Texture2D" uid="uid://xnpygiiiope1" path="res://assets/Colour1/NoOutline/120x80_PNGSheets/_Run.png" id="7_e545b"]
-[ext_resource type="Script" uid="uid://ccbcjmb05rjit" path="res://nodes/hurt_area_2d.gd" id="9_15n7r"]
 
 [sub_resource type="Animation" id="4"]
 length = 0.001
@@ -362,9 +361,6 @@ animations = [{
 "speed": 13.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_15n7r"]
-size = Vector2(19, 35)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7y7yx"]
 size = Vector2(19.000011, 32)
 
@@ -381,21 +377,13 @@ libraries = {
 }
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="." groups=["Player", "Players"]]
-collision_layer = 7
+collision_mask = 2
 script = ExtResource("2_lx4ti")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_iyvci")
-animation = &"death"
+animation = &"run"
 autoplay = "idle"
-
-[node name="HurtArea2D" type="Area2D" parent="CharacterBody2D/AnimatedSprite2D"]
-script = ExtResource("9_15n7r")
-metadata/_custom_type_script = "uid://ccbcjmb05rjit"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/AnimatedSprite2D/HurtArea2D"]
-position = Vector2(-2.5, 22.5)
-shape = SubResource("RectangleShape2D_15n7r")
 
 [node name="HitArea2D" type="Area2D" parent="CharacterBody2D/AnimatedSprite2D"]
 position = Vector2(65, 0)
